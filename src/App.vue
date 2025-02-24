@@ -1,20 +1,31 @@
 <template>
   <div class="shopping-cart">
-    <h1>Harry's Shopping Cart</h1>
+    <h1>{{ username }}'s Shopping Cart</h1>
     <div class="cart-container">
       <div class="cart-list">
         <div class="cart-list-item">
-          <img src="@/assets/img/DragonLiver.png" alt="Dragon Liver" class="product-image">
+          <img
+            :src="shoppingCartItems[0].image"
+            :alt="shoppingCartItems[0].productName"
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Dragon Liver</h2>
-              <p class="price">$1500</p>
-              <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+              <h2>{{ shoppingCartItems[0].productName }}</h2>
+              <p class="price">${{ shoppingCartItems[0].price }}</p>
+              <p class="in-stock-status">
+                <i class="fa-solid fa-check"></i> In stock
+              </p>
             </div>
             <div class="item-actions">
               <div class="quantity-selector">
                 <button class="quantity-change-button">−</button>
-                <input type="text" class="quantity-input" value="3" aria-label="quantity">
+                <input
+                  type="text"
+                  class="quantity-input"
+                  :value="shoppingCartItems[0].quantity"
+                  aria-label="quantity"
+                />
                 <button class="quantity-change-button">+</button>
               </div>
               <button class="remove-item">✕</button>
@@ -22,17 +33,28 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="@/assets/img/GoldenSnitch.png" alt="Golden Snitch" class="product-image">
+          <img
+            :src="shoppingCartItems[1].image"
+            :alt="shoppingCartItems[1].productName"
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Golden Snitch</h2>
-              <p class="price">$600</p>
-              <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+              <h2>{{ shoppingCartItems[1].productName }}</h2>
+              <p class="price">${{ shoppingCartItems[1].price }}</p>
+              <p class="in-stock-status">
+                <i class="fa-solid fa-check"></i> In stock
+              </p>
             </div>
             <div class="item-actions">
               <div class="quantity-selector">
                 <button class="quantity-change-button">−</button>
-                <input type="text" class="quantity-input" value="2" aria-label="quantity">
+                <input
+                  type="text"
+                  class="quantity-input"
+                  :value="shoppingCartItems[1].quantity"
+                  aria-label="quantity"
+                />
                 <button class="quantity-change-button">+</button>
               </div>
               <button class="remove-item">✕</button>
@@ -40,17 +62,28 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="@/assets/img/UnicornTailHair.png" alt="Unicorn Tail Hair" class="product-image">
+          <img
+            :src="shoppingCartItems[2].image"
+            :alt="shoppingCartItems[2].productName"
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Unicorn Tail Hair</h2>
-              <p class="price">$1200</p>
-              <p class="on-backorder-status"> <i class="fa-solid fa-hourglass-half"></i> On backorder</p>
+              <h2>{{ shoppingCartItems[2].productName }}</h2>
+              <p class="price">${{ shoppingCartItems[2].price }}</p>
+              <p class="on-backorder-status">
+                <i class="fa-solid fa-hourglass-half"></i> On backorder
+              </p>
             </div>
             <div class="item-actions">
               <div class="quantity-selector">
                 <button class="quantity-change-button">−</button>
-                <input type="text" class="quantity-input" value="1" aria-label="quantity">
+                <input
+                  type="text"
+                  class="quantity-input"
+                  :value="shoppingCartItems[2].quantity"
+                  aria-label="quantity"
+                />
                 <button class="quantity-change-button">+</button>
               </div>
               <button class="remove-item">✕</button>
@@ -58,17 +91,28 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="@/assets/img/Wand.jpg" alt="Wand" class="product-image">
+          <img
+            :src="shoppingCartItems[3].image"
+            :alt="shoppingCartItems[3].productName"
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Wand</h2>
-              <p class="price">$2000</p>
-              <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+              <h2>{{ shoppingCartItems[3].productName }}</h2>
+              <p class="price">${{ shoppingCartItems[3].price }}</p>
+              <p class="in-stock-status">
+                <i class="fa-solid fa-check"></i> In stock
+              </p>
             </div>
             <div class="item-actions">
               <div class="quantity-selector">
                 <button class="quantity-change-button">−</button>
-                <input type="text" class="quantity-input" value="1" aria-label="quantity">
+                <input
+                  type="text"
+                  class="quantity-input"
+                  :value="shoppingCartItems[3].quantity"
+                  aria-label="quantity"
+                />
                 <button class="quantity-change-button">+</button>
               </div>
               <button class="remove-item">✕</button>
@@ -76,17 +120,28 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="@/assets/img/Nimbus2000.jpg" alt="Nimbus 2000" class="product-image">
+          <img
+            :src="shoppingCartItems[4].image"
+            :alt="shoppingCartItems[4].productName"
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Nimbus 2000</h2>
-              <p class="price">$5000</p>
-              <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+              <h2>{{ shoppingCartItems[4].productName }}</h2>
+              <p class="price">${{ shoppingCartItems[4].price }}</p>
+              <p class="in-stock-status">
+                <i class="fa-solid fa-check"></i> In stock
+              </p>
             </div>
             <div class="item-actions">
               <div class="quantity-selector">
                 <button class="quantity-change-button">−</button>
-                <input type="text" class="quantity-input" value="1" aria-label="quantity">
+                <input
+                  type="text"
+                  class="quantity-input"
+                  :value="shoppingCartItems[4].quantity"
+                  aria-label="quantity"
+                />
                 <button class="quantity-change-button">+</button>
               </div>
               <button class="remove-item">✕</button>
@@ -96,8 +151,13 @@
       </div>
       <div class="order-summary">
         <h2>Order summary</h2>
-        <button class="toggle-details-button">Hide Details</button>
-        <div class="">
+        <button
+          class="toggle-details-button"
+          @click="hideDetails = !hideDetails"
+        >
+          {{ hideDetails ? 'Show Details' : 'Hide Details' }}
+        </button>
+        <div :class="{ 'hide-order-details': hideDetails }">
           <div class="summary-item">
             <span>Subtotal</span>
             <span>$13900</span>
@@ -122,10 +182,57 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 
+let username = 'Harry'
+let shoppingCartItems = ref([
+  {
+    id: 1,
+    productName: 'Dragon Liver',
+    price: 1500,
+    isInStock: true,
+    quantity: 3,
+    image: 'src/assets/img/DragonLiver.png'
+  },
+  {
+    id: 2,
+    productName: 'Golden Snitch',
+    price: 600,
+    isInStock: true,
+    quantity: 2,
+    image: ' src/assets/img/GoldenSnitch.png'
+  },
+  {
+    id: 3,
+    productName: 'Unicorn Tail Hair',
+    price: 1200,
+    isInStock: false,
+    quantity: 1,
+    image: 'src/assets/img/UnicornTailHair.png'
+  },
+  {
+    id: 4,
+    productName: 'Wand',
+    price: 2000,
+    isInStock: true,
+    quantity: 1,
+    image: 'src/assets/img/Wand.jpg'
+  },
+  {
+    id: 5,
+    productName: 'Nimbus 2000',
+    price: 5000,
+    isInStock: true,
+    quantity: 1,
+    image: 'src/assets/img/Nimbus2000.jpg'
+  }
+])
+
+let hideDetails = ref(false)
 </script>
 
 <style scoped>
+/* Styles for the shopping cart */
 .shopping-cart {
   font-family: 'Arial', sans-serif;
   background-color: #f8f8f8;
@@ -285,7 +392,7 @@ h1 {
 }
 
 .checkout-button {
-  background-color: #4F46E5;
+  background-color: #4f46e5;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -298,7 +405,7 @@ h1 {
 }
 
 .checkout-button:hover {
-  background-color: #4138D9;
+  background-color: #4138d9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 </style>
